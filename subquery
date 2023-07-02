@@ -1,0 +1,9 @@
+
+--select customers who have the same active status like Sandra
+select (first_name || ' ' || last_name) as INACTIVE_CUSTOMERS, active
+from customer
+where active = (
+	select active
+	from customer
+	where first_name LIKE '%Sandra%'
+)

@@ -1,0 +1,4 @@
+select category_id f, actor_id fa 
+from film_category f
+join film_actor fa 
+on f.film_id = fa.film_id

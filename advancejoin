@@ -1,0 +1,8 @@
+select c.first_name, c.last_name, y.city, r.country
+from customer c
+join address a 
+on c.address_id = a.address_id
+join city y 
+on a.city_id = y.city_id
+join country r
+on y.country_id = r.country_id

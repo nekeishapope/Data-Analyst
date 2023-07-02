@@ -1,0 +1,26 @@
+select *from customer
+where first_name iLIKE 'm%' /* iLike will ignore case sensitive */
+
+
+select category_id f, actor_id fa from film_category f
+join film_actor fa 
+on f.film_id = fa.film_id
+
+
+SELECT c.customer_id, c.email, c.first_name, c.last_name, 
+FROM customer c
+JOIN rental r ON c.customer_id = r.customer_id
+GROUP BY c.customer_id, c.first_name, c.last_name
+HAVING COUNT(*) > 30 AND COUNT(*) <= 35
+ORDER BY rental_count DESC;
+
+
+SELECT c.customer_id, c.email, c.first_name, c.last_name, f.title
+FROM customer c
+JOIN rental r ON c.customer_id = r.customer_id
+JOIN inventory i on i.inventory_id = r.inventory_id
+JOIN film f on f.film_id = i.film_id
+GROUP BY c.customer_id, c.first_name, c.last_name, f.title
+ORDER BY c.first_name asc
+--JOIN category cat on cat.last_update = c.last_update
+
