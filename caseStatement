@@ -1,0 +1,10 @@
+-- Add 13% to amount rental date pass february 16, 2007
+select c.first_name, c.last_name, p.amount,
+	CASE WHEN payment_date > '2007-02-16'
+	THEN amount * 0.13
+	END
+from customer c 
+join payment p
+USING(customer_id)
+	
+
